@@ -1,32 +1,32 @@
 /*! tiny.js 0.1.0 by Everaldo Canuto - MIT License */
-(function (doc) {
-	$ = function (arg) {
-		return new $.tiny(arg);
+(function (d) {
+	$ = function (a) {
+		return new $.tiny(a);
 	};
 
-	$.tiny = function(arg) {
-		if (typeof arg === 'function') {
-			complete = (doc.readyState === 'complete');
-			return complete ? arg() : $(doc).on('DOMContentLoaded', arg);
-		}
+	$.tiny = function(a) {
+		if (typeof a === 'function')
+			return (d.readyState === 'complete') ? a() :
+				$(d).on('DOMContentLoaded', a);
 
-		element = (typeof arg === 'string') ? doc.querySelectorAll(arg) : [arg];
-		[].push.apply(this, element);
+		[].push.apply(this,
+			(typeof a === 'string') ? d.querySelectorAll(a) : [a]
+		);
 	};
 
-	$.fn = $.prototype = $.tiny.fn = $.tiny.prototype = {
-		each: function (index, value) {
-			[].forEach.call(this, index, value);
+	$.fn = $.prototype = $.tiny.prototype = {
+		each: function (i, v) {
+			[].forEach.call(this, i, v);
 			return this;
 		},
-		on: function (type, listener) {
-			return this.each(function (target) {
-				target.addEventListener(type, listener);
+		on: function (e, f) {
+			return this.each(function (t) {
+				t.addEventListener(e, f);
 			});
 		},
-		off: function (type, listener) {
-			return this.each(function (target) {
-				target.removeEventListener(type, listener);
+		off: function (e, f) {
+			return this.each(function (t) {
+				t.removeEventListener(e, f);
 			});
 		}
 	}
