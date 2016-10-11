@@ -28,6 +28,21 @@
 			return this.each(function (t) {
 				t.removeEventListener(e, f);
 			});
+		},
+		addClass: function (c) {
+			return this.each(function (t) {
+				t.classList.add(c);
+			});
+		},
+		removeClass: function (c) {
+			return this.each(function (t) {
+				t.classList.remove(c);
+			});
+		},
+		toggleClass: function (c) {
+			return this.each(function (t) {
+				t.classList.toggle(c);
+			});
 		}
 	}
 })(document);
