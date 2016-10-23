@@ -1,4 +1,4 @@
-/*! tiny.js 0.1.0 by Everaldo Canuto - MIT License */
+/*! tiny.js 0.2.0 by Everaldo Canuto - MIT License */
 (function (d) {
 	$ = function (a) {
 		return new $.tiny(a);
