@@ -29,6 +29,9 @@
 				t.removeEventListener(e, f);
 			});
 		},
+		hasClass: function(c) {
+			return this[0].classList.contains(c);
+		},
 		addClass: function (c) {
 			return this.each(function (t) {
 				t.classList.add(c);
