@@ -30,6 +30,8 @@
 			});
 		},
 		hasClass: function(c) {
+			if (this.length == 0)
+				return undefined;
 			return this[0].classList.contains(c);
 		},
 		addClass: function (c) {
@@ -45,6 +47,18 @@
 		toggleClass: function (c) {
 			return this.each(function (t) {
 				t.classList.toggle(c);
+			});
+		},
+		style: function (p, v) {
+			if (typeof v === 'undefined') {
+				if (this.length == 0)
+					return undefined;
+
+				return window.getComputedStyle(this[0]).getPropertyValue(p);
+			}
+
+			return this.each(function (t) {
+				t.style[p] = v;
 			});
 		}
 	}
