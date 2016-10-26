@@ -30,6 +30,8 @@
 			});
 		},
 		hasClass: function(c) {
+			if (this.length == 0)
+				return undefined;
 			return this[0].classList.contains(c);
 		},
 		addClass: function (c) {
